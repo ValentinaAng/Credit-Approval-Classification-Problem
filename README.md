@@ -10,7 +10,9 @@ Credit Approval Classification
 5. Data Preprocessing
 6. Model Training and Evaluation
 7. Results
-8. Final Conclusion
+8. Prediction
+9. LIME Interpretability of Predictions
+10. Final Conclusion
 
 
 # Project Description
@@ -62,9 +64,30 @@ The dataset will be uploaded in CSV format and includes the following features:
 | XGB_gridsearch     | 0.931 |
 | SVC_gridsearch     | 0.522 |
 
+Best model chosen: Random Forest Classifier with dollowing parameters:  [n_estimators = 20, max_depth = 5,min_samples_split = 3, min_samples_leaf = 1, criterion = 'entropy', class_weight = 'balanced', random_state = 42]
 
-Best model chosen: Random Forest Classifier with dollowing parameters:  [n_estimators = 10, max_depth = 5, criterion = 'gini', class_weight = 'balanced', random_state = 42]
 
+# Prediction Data
+| checking_status | duration | credit_history                       | purpose               | credit_amount | savings_status               | employment | installment_commitment | personal_status                      | other_parties | residence_since | property_magnitude        | age | other_payment_plans | housing | existing_credits             | job                           | num_dependents | own_telephone | foreign_worker |
+|-----------------|----------|-------------------------------------|-----------------------|---------------|------------------------------|------------|------------------------|--------------------------------------|---------------|-----------------|---------------------------|-----|----------------------|---------|------------------------------|-------------------------------|---------------|---------------|----------------|
+| 0_checking      | 24       | Delay_in_past                        | business              | 2745          | <100DM                       | <1yr       | 1                      | female_divorced/separated/married    | guarantor     | 2               | car_or_other_nonsavings    | 27  | none                 | for_free | 1                            | skilled_employee/official     | 2             | yes           | yes            |
+| 0_checking      | 12       | Existing_credits_paid_till_now       | new_car               | 5500          | <100DM                       | 1_to_4yrs  | 4                      | male_single                          | co-applicant  | 4               | car_or_other_nonsavings    | 33  | none                 | own     | 1                            | skilled_employee/official     | 1             | yes           | yes            |
+| 0_checking      | 18       | Existing_credits_paid_till_now       | radio/television      | 1500          | Unknown_or_no_savings_acct   | <1yr       | 4                      | male_married/widowed                 | guarantor     | 2               | unknown/no_property        | 25  | stores               | rent    | 1                            | unskilled_resident            | 1             | yes           | yes            |
 
+Predictions: [0 1 0]
+
+Prediction probabilities:
+ [[0.84816025 0.15183975]
+ [0.07250454 0.92749546]
+ [0.96737706 0.03262294]]
+
+# LIME Interpretability
+![1](https://github.com/user-attachments/assets/c0fd19ea-5279-465b-b191-b7fdf9e41eac)
+
+![2](https://github.com/user-attachments/assets/f015f632-adfd-48de-b880-52e1ccaf0287)
+
+![3](https://github.com/user-attachments/assets/38799ea2-51a8-4265-913a-586c74b06436)
+
+ 
 # Licence:
 MIT 
